@@ -1,0 +1,58 @@
+-- Find emails ending with ".com"
+SELECT * FROM students WHERE email LIKE '%.com';
+
+-- Find first names starting with 'A'
+SELECT * FROM students WHERE first_name LIKE 'A%';
+
+-- Get students who are either 18, 19, or 20 years old
+SELECT * FROM students WHERE student_age IN (18, 19, 20);
+
+-- Get students who are NOT 18 or 19
+SELECT * FROM students WHERE student_age NOT IN (18, 19);
+
+
+-- Get students aged between 18 and 22
+SELECT * FROM students WHERE student_age BETWEEN 18 AND 22;
+
+
+SELECT first_name AS "First Name", email AS "Student Email" 
+FROM students;
+
+
+-- Count total students
+SELECT COUNT(*) AS total_students FROM students;
+
+-- Find average age of students
+SELECT AVG(student_age) AS avg_age FROM students;
+
+-- Find minimum & maximum age
+SELECT MIN(student_age) AS youngest, MAX(student_age) AS oldest FROM students;
+
+-- Sum of all ages (not common, but possible)
+SELECT SUM(student_age) AS total_age FROM students;
+
+
+-- Count only students older than 18
+SELECT COUNT(*) AS adult_students
+FROM students
+WHERE student_age > 18;
+
+-- Find average age of female students
+SELECT AVG(student_age) AS avg_female_age
+FROM students
+WHERE gender = 'Female';
+
+-- Find youngest and oldest among students with email ending in .com
+SELECT MIN(student_age) AS youngest, MAX(student_age) AS oldest
+FROM students
+WHERE email LIKE '%.com';
+
+-- Find sum of ages of students with last name 'Khan'
+SELECT SUM(student_age) AS total_age_khan
+FROM students
+WHERE last_name = 'Khan';
+
+
+
+
+

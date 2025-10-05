@@ -1,0 +1,22 @@
+SELECT DISTINCT age FROM students;
+
+SELECT * FROM students WHERE age > 18;
+SELECT * FROM students WHERE first_name = 'Ali';
+SELECT * FROM students WHERE email IS NULL;   -- find students with no email
+
+SELECT * FROM students ORDER BY age ASC;   -- ascending
+SELECT * FROM students ORDER BY age DESC;  -- descending
+
+
+SELECT * FROM students LIMIT 5;        -- show first 5
+SELECT * FROM students LIMIT 5 OFFSET 5; -- skip 5, then show next 5
+
+
+ALTER TABLE students ADD COLUMN phone VARCHAR(15);
+
+ALTER TABLE students DROP COLUMN phone;
+ALTER TABLE students RENAME COLUMN age TO student_age;
+ALTER TABLE students MODIFY COLUMN student_age SMALLINT;
+
+
+DELETE FROM students WHERE student_age < 10;

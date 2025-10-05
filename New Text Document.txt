@@ -1,0 +1,58 @@
+CREATE DATABASE my_school;
+
+
+USE my_school;
+
+
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,   -- unique id, auto-increment
+    first_name VARCHAR(50) NOT NULL,             -- cannot be empty
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,                   -- must be unique
+    age INT CHECK (age >= 5),                    -- must be 5 or older
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  -- auto add current time
+);
+
+
+
+SELECT * FROM students;
+
+
+SELECT first_name, email FROM students;
+
+
+SELECT * FROM students LIMIT 5;
+
+
+-- select with condition
+SELECT * FROM students WHERE age > 18;
+
+-- select with sorting
+SELECT * FROM students ORDER BY age DESC;
+
+-- select distinct values (no duplicates)
+SELECT DISTINCT age FROM students;
+
+
+
+INSERT INTO students (first_name, last_name, email, age)
+VALUES ('Ali', 'Khan', 'ali.khan@example.com', 20);
+
+
+
+INSERT INTO students (first_name, last_name, email, age)
+VALUES 
+('Sara', 'Ahmed', 'sara.ahmed@example.com', 19),
+('John', 'Smith', 'john.smith@example.com', 22),
+('Fatima', 'Iqbal', 'fatima.iqbal@example.com', 18);
+
+
+UPDATE students
+SET age = 21
+WHERE student_id = 1;   -- changes Ali's age to 21
+
+
+DROP TABLE students;
+
+
+DROP DATABASE my_school;
